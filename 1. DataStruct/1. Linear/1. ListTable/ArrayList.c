@@ -4,9 +4,8 @@
  * for static inner functions
  */
 static void expansion(ArrayList * plist);
-static void print(ArrayList * list);
 
-static void print(ArrayList * list) {
+void print(ArrayList * list) {
 	int i = 0, size = getSize(list);
 	printf("size:\t%d\n", list->size);
 	printf("capacity:\t%d\n", list->capacity);
@@ -24,7 +23,7 @@ static void expansion(ArrayList * list) {
 }
 
 //init 
-ArrayList* init(int capacity) {
+ArrayList* initList(int capacity) {
 	ArrayList* list = (ArrayList *) assert(malloc(sizeof(ArrayList)));
 
 	list->array = (int *) assert(malloc(capacity*sizeof(int)));
@@ -55,19 +54,34 @@ Status insert(ArrayList* list, int idx, int data) {
 	return TRUE;
 }
 
-Status removeIdx(ArrayList * list, int data) {
-	int idx = -1, size=getSize(list);
-	if((idx=query(list, data)) == -1) 
-		return FALSE;
+Status append(ArrayList* list, int data) {
+	return insert(list, getSize(list), data);
+}
 
-	int i;
+Status removeIdx(ArrayList* list, int idx, int* rp) {
+	if(list==NULL || idx < 0 || idx >= getSize(list))
+		return FALSE;
+	int i, size = getSize(list);
 	for(i=idx; i+1<size; i++) {
 		list->array[i] = list->array[i+1];
 	}
 	list->size--;
 
+	*rp = *(list->array + idx);
 	return TRUE;
 }
+
+Status removeData(ArrayList * list, int data, int* rp) {
+	return removeIdx(list, query(list, data), rp);
+}
+
+Status removeLast(ArrayList* list, int *rp) {
+	return removeIdx(list, getSize(list)-1, rp);
+}
+Status removeFirst(ArrayList* list, int* rp) {
+	return removeIdx(list, 0, rp);
+}
+
 
 // use newData update the very idx: 0->size-1;
 Status update(ArrayList * list, int idx, int newData) {
@@ -88,22 +102,35 @@ int query(ArrayList * list, int data) {
 	int idx = 0, size = getSize(list);
 	while(idx<size && list->array[idx++]!=data)
 	
-	return idx == size ? -1 : idx;
+	return idx == size ? NOTFIND : idx;
 }
 
-int main() {
-	printf("ArrayList Test\n");
-
-	ArrayList * list = init(1);
-	insert(list, getSize(list), 5);
-	insert(list, getSize(list), 7);
-	insert(list, getSize(list), 6);
-
-	update(list, getSize(list)/2, 3);
-	removeIdx(list, getSize(list)/2);
-	int idx = query(list, 6);
-	printf("%d\n", idx);
-	print(list);
-
-	return 0;
+//idx range: 0->size-1
+Status getIdx(ArrayList* list, int idx, int *rp) {
+	if(list == NULL || idx < 0 || idx >= getSize(list))
+		return FALSE;
+	*rp = *(list->array + idx);
+	return true;
 }
+
+// int main() {
+// 	printf("ArrayList Test\n");
+
+// 	ArrayList * list = initList(1);
+// 	int i;
+// 	for(i=0; i<10; i++) {
+// 		append(list, i);
+// 	}
+
+// 	int idx = query(list, 6);
+// 	printf("%d\n", idx);
+// 	print(list);
+
+// 	while(getSize(list) != 0) {
+// 		removeLast(list, &i);
+// 		printf("%d, ",i);
+// 	}
+// 	printf("\nafter remove list is empty? %d\n", isEmpty(list));
+// 	printf("\n");
+// 	return 0;
+// }

@@ -10,7 +10,7 @@ typedef int Status;	// return type
 #define ERROR -1
 
 /**
- * for boolean value
+ * for Boolean value
  */
 typedef int Boolean;
 #define TRUE 1

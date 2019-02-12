@@ -49,21 +49,21 @@ Status push(SeqStack stack, ElemType data) {
 	return TRUE;
 }
 
-int main() {
-	SeqStack stack = initStack(1);
-	printf("init over, stack->size==%d, stack->capacity==%d\n", getSize(stack), stack->capacity);
+// int main() {
+// 	SeqStack stack = initStack(1);
+// 	printf("init over, stack->size==%d, stack->capacity==%d\n", getSize(stack), stack->capacity);
 
-	int i;
-	for(i = 0; i<10; i++) {
-		push(stack, i);
-	}
-	printf("push over, stack->size==%d, stack->capacity==%d\n", getSize(stack), stack->capacity);
+// 	int i;
+// 	for(i = 0; i<10; i++) {
+// 		push(stack, i);
+// 	}
+// 	printf("push over, stack->size==%d, stack->capacity==%d\n", getSize(stack), stack->capacity);
 
-	while(!isEmptyStack(stack)) {
-		pop(stack, &i);
-		printf("%d\t", i);
-	}
-	printf("\n");
+// 	while(!isEmptyStack(stack)) {
+// 		pop(stack, &i);
+// 		printf("%d\t", i);
+// 	}
+// 	printf("\n");
 
-	return 0;
-}
+// 	return 0;
+// }

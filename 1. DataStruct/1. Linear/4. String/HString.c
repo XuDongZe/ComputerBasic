@@ -176,53 +176,53 @@ int querySubStrKMP(const HString src, int begin, const HString sub) {
 
 }
 
-int main() {
-	HString str1 = initStr(), str2 = initStr();
-	printf("init over, str1->length=%d, str2->length=%d\n", getLength(str1), getLength(str2));
-	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
+// int main() {
+// 	HString str1 = initStr(), str2 = initStr();
+// 	printf("init over, str1->length=%d, str2->length=%d\n", getLength(str1), getLength(str2));
+// 	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
 	
-	assignStr(str1, "abcdefg");
-	printf("assign over, str1->length=%d, str2->length=%d\n", str1->length, str2->length);
-	printStr(str1);
-	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
+// 	assignStr(str1, "abcdefg");
+// 	printf("assign over, str1->length=%d, str2->length=%d\n", str1->length, str2->length);
+// 	printStr(str1);
+// 	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
 
-	copyStr(str2, str1);
-	printf("copy over, str1->length=%d, str2->length=%d\n", str1->length, str2->length);
+// 	copyStr(str2, str1);
+// 	printf("copy over, str1->length=%d, str2->length=%d\n", str1->length, str2->length);
 	
-	printStr(str1); printStr(str2);
-	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
+// 	printStr(str1); printStr(str2);
+// 	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
 	
-	setIdx(str1, 0, 'A');
-	printf("getIdx(%d) %c\n", 0, getIdx(str1, 0));
-	printStr(str1);
-	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
+// 	setIdx(str1, 0, 'A');
+// 	printf("getIdx(%d) %c\n", 0, getIdx(str1, 0));
+// 	printStr(str1);
+// 	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
 
-	str2 = getSubStr(str1, 0, getLength(str1)/2);
-	printf("getSub over, str1->length=%d, str2->length=%d\n", str1->length, str2->length);
-	printStr(str2);
+// 	str2 = getSubStr(str1, 0, getLength(str1)/2);
+// 	printf("getSub over, str1->length=%d, str2->length=%d\n", str1->length, str2->length);
+// 	printStr(str2);
 
-	assignStr(str1, "abcdabcdabcdabcabcabcd");
-	assignStr(str2, "ab");
-	printStr(str1);
-	printStr(str2);
-	int idx = 0;
-	HString s = NULL;
-	while(idx != NOTFIND && idx < getLength(str1)) {
-		if( (idx=querySubStr(str1, idx, str2)) != NOTFIND ) {
-			printf("%d, ", idx);
-			idx += getLength(str2);
-		}
-	}
-	printf("\n");
+// 	assignStr(str1, "abcdabcdabcdabcabcabcd");
+// 	assignStr(str2, "ab");
+// 	printStr(str1);
+// 	printStr(str2);
+// 	int idx = 0;
+// 	HString s = NULL;
+// 	while(idx != NOTFIND && idx < getLength(str1)) {
+// 		if( (idx=querySubStr(str1, idx, str2)) != NOTFIND ) {
+// 			printf("%d, ", idx);
+// 			idx += getLength(str2);
+// 		}
+// 	}
+// 	printf("\n");
 
-	clearStr(str1);
-	printf("clear over, str1->length=%d, str2->length=%d\n", str1->length, str2->length);
-	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
+// 	clearStr(str1);
+// 	printf("clear over, str1->length=%d, str2->length=%d\n", str1->length, str2->length);
+// 	printf("cmp str1&str2, %d\n", compareStr(str1, str2));
 
-	destoryStr(&str1);
-	destoryStr(&str2);
+// 	destoryStr(&str1);
+// 	destoryStr(&str2);
 
-	printf("test over\n");
-	return 0;
-}
+// 	printf("test over\n");
+// 	return 0;
+// }
 

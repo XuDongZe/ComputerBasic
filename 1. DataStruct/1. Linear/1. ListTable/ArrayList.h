@@ -15,15 +15,23 @@ typedef struct ArrayList {
 #define getCap(arraylist) ((arraylist)->capacity)
 #define getSize(arraylist) ((arraylist)->size)  
 #define isFull(arraylist) (((arraylist)->size==(arraylist)->capacity)? TRUE:FALSE)
+#define isEmpty(list) ((list)==NULL ? TRUE : ((list)->size == 0 ? TRUE : FALSE))
+
+//print
+void print(ArrayList * list);
 
 //init 
-ArrayList * init(int capacity);
+ArrayList * initList(int capacity);
 
 //insert, Status for idx
 Status insert(ArrayList* list, int data, int idx);	//after the very idx
+Status append(ArrayList* list, int data);
 
 //delete, Status for data not exsit
-Status removeIdx(ArrayList* list, int idx);
+Status removeIdx(ArrayList* list, int idx, int *rp);
+Status removeData(ArrayList* list, int data, int *rp);
+Status removeLast(ArrayList* list, int *rp);
+Status removeFirst(ArrayList* list, int* rp);
 
 //update, Status for idx
 Status update(ArrayList* list, int idx, int newData);
@@ -32,6 +40,6 @@ Status update(ArrayList* list, int idx, int newData);
 int query(ArrayList* list, int data);
 
 //for random access： idx: 0->size-1
-int getData(ArrayList *list, int idx);
+Boolean getIdx(ArrayList *list, int idx, int* rp);
 
 #endif

@@ -48,34 +48,34 @@ Status push(SCQueue queue, ElemType data) {
 	return TRUE;
 }
 
-int main() {
-	SCQueue queue = initQueue();
-	printf("init over, head=%d, tail=%d, size=%d\n", queue->head, queue->tail, getSize(queue));
+// int main() {
+// 	SCQueue queue = initQueue();
+// 	printf("init over, head=%d, tail=%d, size=%d\n", queue->head, queue->tail, getSize(queue));
 
-	int i = 0;
-	while(!isFullQueue(queue)) {
-		push(queue, i++);
-	}
-	printf("push over, head=%d, tail=%d, size=%d\n", queue->head, queue->tail, getSize(queue));
+// 	int i = 0;
+// 	while(!isFullQueue(queue)) {
+// 		push(queue, i++);
+// 	}
+// 	printf("push over, head=%d, tail=%d, size=%d\n", queue->head, queue->tail, getSize(queue));
 
-	while(!isEmptyQueue(queue)) {
-		pop(queue, &i);
-		printf("%d\t", i);
-	}
-	printf("\npop over, head=%d, tail=%d, size=%d\n", queue->head, queue->tail, getSize(queue));
+// 	while(!isEmptyQueue(queue)) {
+// 		pop(queue, &i);
+// 		printf("%d\t", i);
+// 	}
+// 	printf("\npop over, head=%d, tail=%d, size=%d\n", queue->head, queue->tail, getSize(queue));
 
-	//angin push & pop op
-	while(!isFullQueue(queue)) {
-		push(queue, i++);
-	}
-	printf("push over, head=%d, tail=%d, size=%d\n", queue->head, queue->tail, getSize(queue));
+// 	//angin push & pop op
+// 	while(!isFullQueue(queue)) {
+// 		push(queue, i++);
+// 	}
+// 	printf("push over, head=%d, tail=%d, size=%d\n", queue->head, queue->tail, getSize(queue));
 
-	while(!isEmptyQueue(queue)) {
-		pop(queue, &i);
-		printf("%d\t", i);
-	}
-	return 0;
-}
+// 	while(!isEmptyQueue(queue)) {
+// 		pop(queue, &i);
+// 		printf("%d\t", i);
+// 	}
+// 	return 0;
+// }
 
 
 
