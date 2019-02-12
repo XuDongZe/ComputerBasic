@@ -58,8 +58,8 @@ typedef LinkedList * List;
 	when use these, user must check the it or list is not null
 	use isNullPtr(ptr) in "commmen.h"
  */
-#define getNextIt(it) ((it)->next)
-#define getPrevIt(it) ((it)->prev)
+#define getNextIt(it) (((it) == NULL)? NULL : (it)->next)
+#define getPrevIt(it) (((it) == NULL)? NULL : (it)->prev)
 #define getData(it) ((it)->data)
 
 #define getHeadIt(list) ((list)->head)	//equal with Iterator
@@ -121,8 +121,8 @@ int indexOf(List, Node newNode,
 /*
 	for special operations
  */
-void reverseList(List *plist);
-Status exchangeNode(List dst, Iterator it, List src, Iterator it); 
+List reverseList(List list);
+Status exchangeNode(List dst, Iterator it_dst, List src, Iterator it_src); 
 
 
 #endif

@@ -93,3 +93,44 @@ Status insertAfterIdx(List list, int idx, Node node) {
 		;
 	return insertAfterIt(list, it, node);
 }
+
+List reverseList(List list) {
+	//使用长度优雅地遍历双向链表
+	int n = getLength(list);
+
+	Node cur = getFirstIt(list);
+	Node next = cur->next;
+	Node prev = cur->prev;
+	for(int i=0; i<n; i++) {
+		next = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = next;
+	}
+
+	Node temp = list->tail;
+	list->tail = list->head->next;
+	list->head->next = temp;
+
+	return list;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

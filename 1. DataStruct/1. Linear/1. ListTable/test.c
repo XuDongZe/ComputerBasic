@@ -31,6 +31,11 @@ int main() {
 		insertLast(list, node);
 	}
 	traverse(list, printNode);
+
+	list = reverseList(list);
+	printf("after reverseList list:\n");
+	traverse(list, printNode);
+	
 	printf("dataSize = %d, length = %d\n", list->dataSize, list->length);
 	return 0;
 }
