@@ -7,6 +7,11 @@ def printDict(_dir):
 		print(i, ':', _dir.get(i))
 	return
 
+def printList(_list):
+	for item in _list:
+		print(item[0], ":", item[1])
+	return
+
 def separate():
 	pattern = r'[\[](.*)[\]]'
 	p = re.compile(pattern, re.I)
@@ -16,10 +21,15 @@ def separate():
 	for line in lines:
 		res = p.search(line).group(1).split(":")
 		_dir[res[0].strip()] = res[1].strip()
-	return _dir; 
+	return _dir
+
+def sort(_dir):
+	return sorted(_dir.items(), key = lambda item:item[0])
 
 def main():
-	printDict(separate())
+	while(True) {
+		printList(sort(separate()))
+	}
 
 if __name__ == '__main__':
 	main()
